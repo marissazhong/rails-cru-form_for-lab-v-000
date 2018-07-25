@@ -2,7 +2,7 @@
 
 <%= form_for(@song) do |f| %>
   <label>Song Name:</label><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :'song[name]' %><br>
 
   <%= f.submit %>
 <% end %>
