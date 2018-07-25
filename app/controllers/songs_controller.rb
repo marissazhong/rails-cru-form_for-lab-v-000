@@ -1,30 +1,30 @@
 class SongsController < ApplicationController
 
 	def show
-		@student = Student.find(params[:id])
+		@song = Song.find(params[:id])
 	end
 
 	def new
-		@student = Student.new
+		@song = Song.new
 	end
 
 	def create
-	  @student = Student.new(student_params(:first_name, :last_name))
-	  @student.save
-	  redirect_to student_path(@student)
+	  @song = Song.new(song_params(:name, :artist_id, :genre_id))
+	  @song.save
+	  redirect_to song_path(@song)
 	end
 
 	def edit
-		@student = Student.find(params[:id])
+		@song = Song.find(params[:id])
 	end
 
 	def update
-	  @student = Student.find(params[:id])
-		@student.update(student_params(:first_name, :last_name))
-    redirect_to student_path(@student)
+	  @song = Song.find(params[:id])
+		@song.update(song_params(:name, :artist_id, :genre_id))
+    redirect_to song_path(@song)
 	end
 
-	def student_params(*args)
-		params.require(:student).permit(*args)
+	def Song_params(*args)
+		params.require(:Song).permit(*args)
 	end
 end
